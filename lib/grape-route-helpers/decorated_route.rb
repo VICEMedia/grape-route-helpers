@@ -135,12 +135,7 @@ module GrapeRouteHelpers
 
     def uses_segments_in_path_helper?(segments)
       segments = segments.reject { |x| special_keys.include?(x) }
-
-      if required_helper_segments.empty? && segments.any?
-        false
-      else
-        required_helper_segments.all? { |x| segments.include?(x) }
-      end
+      required_helper_segments.sort == segments.sort
     end
 
     def route_path

@@ -14,7 +14,7 @@ module GrapeRouteHelpers
       if route
         route.send(method_id, *arguments)
       else
-        super
+        fail ArgumentError, "No matching route found for #{method_id} with parameters #{segments.inspect}"
       end
     end
 
